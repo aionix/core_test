@@ -10,8 +10,8 @@ import static org.openqa.selenium.remote.BrowserType.*;
  * Created by Artem.Buchynskyi on 25.10.2017.
  */
 public class ApplicationManager {
-    WebDriver driver;
-    String  browser;
+    public WebDriver driver;
+    public String  browser;
     public GroupHelper groupHelper;
     public NavigationHelper navigationHelper;
     public SessionHelper sessionHelper;
@@ -35,7 +35,9 @@ public class ApplicationManager {
         sessionHelper.login("admin", "secret");
     }
     public void stop() {
+        driver.close();
         driver.quit();
+
     }
 
 }

@@ -14,15 +14,15 @@ import static org.testng.Assert.fail;
  */
 public class TestBase {
 
-    protected ApplicationManager app = new ApplicationManager(BrowserType.CHROME);
+    public ApplicationManager app = new ApplicationManager(BrowserType.CHROME);
 
 
-    @BeforeTest(alwaysRun = true)
+    @BeforeClass(alwaysRun = true)
     public void setUp() throws Exception {
         app.init();
     }
 
-    @AfterTest(alwaysRun = true)
+    @AfterClass(alwaysRun = true)
     public void tearDown() throws Exception {
         app.stop();
     }

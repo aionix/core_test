@@ -2,6 +2,7 @@ group 'core_test'
 version '1.0-SNAPSHOT'
 
 apply plugin: 'java'
+apply plugin: 'application'
 
 sourceCompatibility = 1.8
 
@@ -16,7 +17,7 @@ dependencies {
 
 test {
     useTestNG() {
-        suites 'src/test/resources/testng_groups.xml'
+     //   suites 'src/test/resources/testng_groups.xml'
     }
 
 }
