@@ -14,9 +14,15 @@ dependencies {
     compile 'org.seleniumhq.selenium:selenium-java:2.53.1'
 }
 
-task testGroupsCreate(type: Test) {
-    useTestNG(){
+test {
+    useTestNG() {
         suites 'src/test/resources/testng_groups.xml'
+    }
+
+}
+task testGroupsDelete(type: Test) {
+    useTestNG(){
+        suites 'src/test/resources/testng_groups_delete.xml'
     }
     if (project.hasProperty('browser')){
         systemProperty 'browser', "${browser}"
@@ -28,3 +34,6 @@ task testGroupsCreate(type: Test) {
         systemProperty 'target', "${target}"
     }
 }
+
+
+
