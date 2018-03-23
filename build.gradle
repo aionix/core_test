@@ -1,22 +1,19 @@
-group 'core_test'
-version '1.0-SNAPSHOT'
 apply plugin: 'java'
-apply plugin: 'application'
-sourceCompatibility = 1.8
 
 repositories {
     mavenCentral()
 }
 
+configurations {
+    agent
+}
 dependencies {
     compile 'org.testng:testng:6.9.10'
-    compile 'org.seleniumhq.selenium:selenium-java:2.53.1'
+    compile 'org.seleniumhq.selenium:selenium-java:3.9.1'
+    agent "org.aspectj:aspectjweaver:1.8.10"
+    compile "ru.yandex.qatools.allure:allure-testng-adaptor:1.5.4"
 }
 
-test {
-    useTestNG() {
-    }
-}
 task testGroups(type: Test) {
     useTestNG() {
         suites 'src/test/resources/testng_groups.xml'
@@ -29,7 +26,9 @@ task testGroups(type: Test) {
     }
     if (project.hasProperty('target')) {
         systemProperty 'target', "${target}"
-    }
+    } }
+testGroups.doFirst {
+    jvmArgs "-javaagent:${configurations.agent.singleFile}"
 }
 
     task testRemove(type: Test) {
@@ -44,8 +43,8 @@ task testGroups(type: Test) {
         }
         if (project.hasProperty('target')){
             systemProperty 'target', "${target}"
-        }
-}
+        } }
+
 
 
 

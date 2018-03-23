@@ -1,26 +1,29 @@
 package stqa.pft.sandbox.tests;
 
-import org.openqa.selenium.remote.BrowserType;
+import org.testng.ITestContext;
 import org.testng.annotations.*;
 import stqa.pft.sandbox.appmanager.ApplicationManager;
+import stqa.pft.sandbox.helpers.MyTestListener;
+import stqa.pft.sandbox.model.BrowserType;
+import java.io.IOException;
+import static stqa.pft.sandbox.model.BrowserType.*;
 
-import static org.testng.Assert.fail;
-
-/**
- * Created by Artem.Buchynskyi on 24.10.2017.
- */
+@Listeners(MyTestListener.class)
 public class TestBase {
 
-    public ApplicationManager app = new ApplicationManager(BrowserType.CHROME);
+    public ApplicationManager app =
+            new ApplicationManager(System
+                    .getProperty("browser", BrowserType.CHROME), System.getProperty("target", "qa"));
 
 
-    @BeforeMethod(alwaysRun = true)
-    public void setUp() throws Exception {
+    @BeforeMethod()
+    public void setUp(ITestContext context) throws IOException {
         app.init();
+        context.setAttribute("app", app);
     }
 
     @AfterMethod(alwaysRun = true)
-    public void tearDown() throws Exception {
+    public void tearDown(){
         app.stop();
     }
 

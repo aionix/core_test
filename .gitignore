@@ -48,7 +48,7 @@ crashlytics-build.properties
 fabric.properties
 
 .idea/
-addressbook-web-tests/.gradle/3.2.1/
-soap-sample/
 addressbook-web-tests/allure-report/data/
 addressbook-web-tests/allure-report/
+allure-report/
+
