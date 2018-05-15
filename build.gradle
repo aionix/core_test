@@ -9,9 +9,10 @@ configurations {
 }
 dependencies {
     compile 'org.testng:testng:6.9.10'
-    compile 'org.seleniumhq.selenium:selenium-java:3.9.1'
+    compile group: 'org.seleniumhq.selenium', name: 'selenium-java', version: '3.11.0'
     agent "org.aspectj:aspectjweaver:1.8.10"
     compile "ru.yandex.qatools.allure:allure-testng-adaptor:1.5.4"
+    compile group: 'mysql', name: 'mysql-connector-java', version: '5.1.6'
 }
 
 task testGroups(type: Test) {
@@ -44,6 +45,26 @@ testGroups.doFirst {
         if (project.hasProperty('target')){
             systemProperty 'target', "${target}"
         } }
+testRemove.doFirst {
+    jvmArgs "-javaagent:${configurations.agent.singleFile}"
+}
+
+task testByGroups(type: Test) {
+    useTestNG() {
+        suites 'src/test/resources/testng_groups2.xml'
+    }
+    if (project.hasProperty('browser')) {
+        systemProperty 'browser', "${browser}"
+    }
+    if (project.hasProperty('platform')) {
+        systemProperty 'platform', "${platform}"
+    }
+    if (project.hasProperty('target')) {
+        systemProperty 'target', "${target}"
+    } }
+testByGroups.doFirst {
+    jvmArgs "-javaagent:${configurations.agent.singleFile}"
+}
 
 
 

@@ -1,40 +1,50 @@
 package stqa.pft.sandbox.tests.groupsTests;
 
+import org.openqa.selenium.By;
+import org.testng.Assert;
 import org.testng.annotations.*;
 
 import ru.yandex.qatools.allure.annotations.Description;
-import stqa.pft.sandbox.helpers.NumbersGenerator;
 import stqa.pft.sandbox.model.GroupData;
 import stqa.pft.sandbox.tests.TestBase;
+import utils.FilesUtil;
 
-import static stqa.pft.sandbox.helpers.NumbersGenerator.*;
+import static utils.NumbersGenerator.*;
 
 
 public class GroupCreationTests extends TestBase {
 
-    @Test
+    @Test(groups = "smoke")
     @Description("user creates Group from groups page")
     public void testGroupCreation(){
         app.navigationHelper.gotoGroupPage();
         app.groupHelper.initGroupCreation();
-        app.groupHelper.fillGroupForm(new GroupData(getCurrentTime(), "asd", "asd"));
+        app.groupHelper.fillGroupForm(new GroupData()
+                .withName("test gr "+getCurrentTime()).withHeader("head").withFooter("foot"));
         app.groupHelper.submitGroupCreation();
-
-        app.navigationHelper.returnToGroupsPage();
     }
 
-    //@Test
+    @Test(groups = "smoke")
+    @Description("user creates Group from groups page")
     public void testGroupCreation2(){
         app.navigationHelper.gotoGroupPage();
         app.groupHelper.initGroupCreation();
-        app.groupHelper.fillGroupForm(new GroupData("new", "asd", "asd"));
+        app.groupHelper.fillGroupForm(new GroupData()
+                .withName("test gr "+getCurrentTime()).withHeader("head").withFooter("foot"));
         app.groupHelper.submitGroupCreation();
-        app.navigationHelper.returnToGroupsPage();
+        Assert.assertEquals("00","123");
     }
 
-    //@Test
-    public void loginIE(){
+    @Test(groups = "smoke2")
+    @Description("user creates")
+    public void attachePic(){
         app.navigationHelper.gotoGroupPage();
+        app.driver.findElement(By.linkText("add new")).click();
+        app.driver.findElement(By.name("firstname")).sendKeys("with-pic"+getCurrentTime());
+
+        app.driver.findElement(By.cssSelector("input[type=file]")).sendKeys(FilesUtil.getFilePath("pic2.jpg"));
+        app.driver.findElement(By.xpath("//input[@name='submit'][1]")).click();
+
     }
 
 }
