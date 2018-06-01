@@ -23,7 +23,8 @@ build/
 # Gradle:
 .idea/**/gradle.xml
 .idea/**/libraries
-
+.gradle/3.3/
+.gradle/3.3/taskArtifacts/
 # Mongo Explorer plugin:
 .idea/**/mongoSettings.xml
 
@@ -52,3 +53,4 @@ addressbook-web-tests/allure-report/data/
 addressbook-web-tests/allure-report/
 allure-report/
 
+/build/

@@ -8,6 +8,7 @@ configurations {
     agent
 }
 dependencies {
+    compile group: 'commons-io', name: 'commons-io', version: '2.6'
     compile 'org.testng:testng:6.9.10'
     compile group: 'org.seleniumhq.selenium', name: 'selenium-java', version: '3.11.0'
     agent "org.aspectj:aspectjweaver:1.8.10"
@@ -51,7 +52,7 @@ testRemove.doFirst {
 
 task testByGroups(type: Test) {
     useTestNG() {
-        suites 'src/test/resources/testng_groups2.xml'
+        suites 'src/test/resources/testng_filer_by_groups.xml'
     }
     if (project.hasProperty('browser')) {
         systemProperty 'browser', "${browser}"
@@ -66,6 +67,22 @@ testByGroups.doFirst {
     jvmArgs "-javaagent:${configurations.agent.singleFile}"
 }
 
+task testByGroups2(type: Test) {
+    useTestNG() {
+        suites 'src/test/resources/testng_filer_by_groups_parallel.xml'
+    }
+    if (project.hasProperty('browser')) {
+        systemProperty 'browser', "${browser}"
+    }
+    if (project.hasProperty('platform')) {
+        systemProperty 'platform', "${platform}"
+    }
+    if (project.hasProperty('target')) {
+        systemProperty 'target', "${target}"
+    } }
+testByGroups2.doFirst {
+    jvmArgs "-javaagent:${configurations.agent.singleFile}"
+}
 
 
 
