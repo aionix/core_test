@@ -1,6 +1,6 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 
-<suite name="Suite_filter_by_groups" verbose="1" parallel="classes" thread-count="2" >
+<suite name="Suite_filter_by_groups" verbose="1" parallel="classes" thread-count="4" >
 <test name="Smoke_00">
     <groups>
         <run>

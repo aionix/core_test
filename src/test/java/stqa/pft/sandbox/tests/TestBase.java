@@ -12,7 +12,7 @@ public class TestBase {
 
     protected ApplicationManager app =
             new ApplicationManager(System
-                    .getProperty("browser", BrowserType.CHROME), System.getProperty("target", "qa"));
+                    .getProperty("browser", BrowserType.FIREFOX), System.getProperty("target", "qa"));
 
 
     @BeforeClass(alwaysRun = true)
@@ -28,8 +28,11 @@ public class TestBase {
 
     @BeforeMethod(alwaysRun = true)
     public void cleanBeforeMethod(){
-        app.driver.manage().deleteAllCookies();
-        app.openLoginPage();
+        if(app.driver != null){
+            app.driver.manage().deleteAllCookies();
+            app.openLoginPage();
+        }
+
     }
 
 
