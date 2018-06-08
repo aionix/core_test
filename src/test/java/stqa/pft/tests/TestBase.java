@@ -1,10 +1,10 @@
-package stqa.pft.sandbox.tests;
+package stqa.pft.tests;
 
 import org.testng.ITestContext;
 import org.testng.annotations.*;
-import stqa.pft.sandbox.appmanager.ApplicationManager;
-import stqa.pft.sandbox.listeners.MyTestListener;
-import stqa.pft.sandbox.model.BrowserType;
+import stqa.pft.appmanager.ApplicationManager;
+import stqa.pft.listeners.MyTestListener;
+import stqa.pft.model.BrowserType;
 import java.io.IOException;
 
 @Listeners(MyTestListener.class)

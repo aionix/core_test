@@ -1,4 +1,4 @@
-package stqa.pft.sandbox.appmanager;
+package stqa.pft.appmanager;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
@@ -7,15 +7,15 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.support.PageFactory;
-import stqa.pft.sandbox.pages.GroupPage;
-import stqa.pft.sandbox.pages.NavigationPage;
-import stqa.pft.sandbox.pages.SessionPage;
+import stqa.pft.pages.GroupPage;
+import stqa.pft.pages.NavigationPage;
+import stqa.pft.pages.SessionPage;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
-import static stqa.pft.sandbox.model.BrowserType.*;
+import static stqa.pft.model.BrowserType.*;
 
 
 public class ApplicationManager {

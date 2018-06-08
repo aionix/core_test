@@ -1,16 +1,9 @@
-package stqa.pft.sandbox.tests.groupsTests;
+package stqa.pft.tests.groupsTests;
 
-import org.testng.ITestContext;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 import ru.yandex.qatools.allure.annotations.Description;
-import stqa.pft.sandbox.tests.TestBase;
-import utils.FileUtilz;
-
-import java.io.IOException;
+import stqa.pft.tests.TestBase;
 
 public class SoftAssertTests extends TestBase {
 //

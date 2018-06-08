@@ -3,8 +3,8 @@
 <suite name="Suite1" verbose="1" >
     <test name="Groups_creation" >
         <classes>
-            <class name="stqa.pft.sandbox.tests.groupsTests.GroupCreationTests" />
-           <!-- <class name="stqa.pft.sandbox.tests.groupsTests.GroupDeletionTests" /> -->
+            <class name="stqa.pft.tests.groupsTests.GroupCreationTests" />
+           <!-- <class name="GroupDeletionTests" /> -->
           </classes>
       </test>
   </suite>

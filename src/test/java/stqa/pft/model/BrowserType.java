@@ -1,4 +1,4 @@
-package stqa.pft.sandbox.model;
+package stqa.pft.model;
 
 /**
  * Created by Artem.Buchynskyi on 25.10.2017.

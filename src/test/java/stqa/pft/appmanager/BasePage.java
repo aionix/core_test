@@ -1,4 +1,4 @@
-package stqa.pft.sandbox.appmanager;
+package stqa.pft.appmanager;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;

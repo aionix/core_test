@@ -1,4 +1,4 @@
-package stqa.pft.sandbox.model;
+package stqa.pft.model;
 
 public class GroupData {
     private  String name;

@@ -1,10 +1,8 @@
-package stqa.pft.sandbox.tests.groupsTests;
+package stqa.pft.tests.groupsTests;
 
-import org.testng.Assert;
 import org.testng.annotations.*;
 import ru.yandex.qatools.allure.annotations.Description;
-import stqa.pft.sandbox.tests.TestBase;
-import utils.FileUtilz;
+import stqa.pft.tests.TestBase;
 
 public class GroupDeletionTests extends TestBase {
 
