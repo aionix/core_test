@@ -16,28 +16,28 @@ public class GroupCreationTests extends TestBase {
     @Test(groups = "smoke")
     @Description("user creates Group from groups page")
     public void testGroupCreation(){
-        app.navigationHelper.gotoGroupPage();
-        app.groupHelper.initGroupCreation();
-        app.groupHelper.fillGroupForm(new GroupData()
+        app.navigationPage.gotoGroupPage();
+        app.groupPage.initGroupCreation();
+        app.groupPage.fillGroupForm(new GroupData()
                 .withName("test gr "+getCurrentTime()).withHeader("head").withFooter("foot"));
-        app.groupHelper.submitGroupCreation();
+        app.groupPage.submitGroupCreation();
     }
 
     @Test(groups = "smoke")
     @Description("user creates Group from groups page")
     public void testGroupCreation2(){
-        app.navigationHelper.gotoGroupPage();
-        app.groupHelper.initGroupCreation();
-        app.groupHelper.fillGroupForm(new GroupData()
+        app.navigationPage.gotoGroupPage();
+        app.groupPage.initGroupCreation();
+        app.groupPage.fillGroupForm(new GroupData()
                 .withName("test gr - TO FAIL").withHeader("head").withFooter("foot"));
-        app.groupHelper.submitGroupCreation();
+        app.groupPage.submitGroupCreation();
         Assert.assertEquals("00","123");
     }
 
     @Test(groups = "smoke2")
     @Description("user creates")
     public void attachePic(){
-        app.navigationHelper.gotoGroupPage();
+        app.navigationPage.gotoGroupPage();
         app.driver.findElement(By.linkText("add new")).click();
         app.driver.findElement(By.name("firstname")).sendKeys("with-pic"+getCurrentTime());
 

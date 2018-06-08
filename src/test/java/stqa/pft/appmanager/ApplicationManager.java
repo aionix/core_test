@@ -23,9 +23,9 @@ public class ApplicationManager {
     private final String propsFile;
     public WebDriver driver;
     public String  browser;
-    public GroupPage groupHelper;
-    public NavigationPage navigationHelper;
-    public SessionPage sessionHelper;
+    public GroupPage groupPage;
+    public NavigationPage navigationPage;
+    public SessionPage sessionPage;
 
     public ApplicationManager(String browser, String environment) {
         this.browser = browser;
@@ -48,9 +48,9 @@ public class ApplicationManager {
             driver = new FirefoxDriver(options);
         }
 
-        groupHelper =      PageFactory.initElements(driver, GroupPage.class);
-        navigationHelper = PageFactory.initElements(driver, NavigationPage.class);
-        sessionHelper =    PageFactory.initElements(driver, SessionPage.class);
+        groupPage =      PageFactory.initElements(driver, GroupPage.class);
+        navigationPage = PageFactory.initElements(driver, NavigationPage.class);
+        sessionPage =    PageFactory.initElements(driver, SessionPage.class);
 
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
@@ -58,7 +58,7 @@ public class ApplicationManager {
 
     public void openLoginPage() {
         driver.get(properties.getProperty("web.url"));
-        sessionHelper.login(properties.getProperty("user_admin_login"), properties.getProperty("user_admin_password"));
+        sessionPage.login(properties.getProperty("user_admin_login"), properties.getProperty("user_admin_password"));
     }
 
     public void stop() {

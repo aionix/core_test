@@ -15,10 +15,10 @@ public class ParametrizedTests extends TestBase {
     @Test(dataProvider = "validGroups", groups = "smoke2")
     @Description("creating group with help of Data Provider")
     public void createGroup(GroupData group) {
-        app.navigationHelper.gotoGroupPage();
-        app.groupHelper.initGroupCreation();
-        app.groupHelper.fillGroupForm(group);
-        app.groupHelper.submitGroupCreation();
+        app.navigationPage.gotoGroupPage();
+        app.groupPage.initGroupCreation();
+        app.groupPage.fillGroupForm(group);
+        app.groupPage.submitGroupCreation();
     }
 
     @DataProvider

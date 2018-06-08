@@ -10,12 +10,12 @@ public class GroupDeletionTests extends TestBase {
   @Test(groups = "smoke")
   @Description("User removes one group, the first one")
   public void testGroupDeletion() {
-    app.navigationHelper.gotoGroupPage();
-    app.groupHelper.selectGroup();
-    app.groupHelper.deleteSelectedGroup();
-    app.navigationHelper.returnToGroupsPage();
+    app.navigationPage.gotoGroupPage();
+    app.groupPage.selectGroup();
+    app.groupPage.deleteSelectedGroup();
+    app.navigationPage.returnToGroupsPage();
     //Assert.assertEquals("00","123");
-    app.navigationHelper.logout();
+    app.navigationPage.logout();
   }
 
 
